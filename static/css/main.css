@@ -1,0 +1,42 @@
+* {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+    background-color: #fff;
+}
+
+h1 {
+    color: #F5F6F7;
+}
+
+.form-container {
+    background-color: #202020;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 15px 20px 5px 1px rgba(11, 50, 109, 0.418);
+}
+
+.form-container p{
+    color: #F5F6F7;
+}
+
+form {
+    padding: 15px;
+    margin: auto;
+}
+
+.alert {
+    width: 300px;
+    margin: auto;
+    display:flex;
+    justify-content: space-around;
+}
+
+#close-message {
+    cursor: pointer;
+}

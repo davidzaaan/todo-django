@@ -1,0 +1,19 @@
+{% extends 'index.html'%}
+
+{% block content %}
+<div class="container">
+    <div class="form-container">
+        <h1>Edit</h1>
+        <form action="{% url 'edit' task.id %}" method="post">
+          {% csrf_token %}
+          {% for field in form %}
+          <div class="form-floating mb-2">
+              <input class="form-control" id="floatingInput" {{field}} placeholder="{{field.name}}">
+              <label for="floatingInput">{{ field.name }}</label>
+          </div>
+          {% endfor %}
+            <input type="submit" class="btn btn-primary text-center" value="Confirm"/>
+        </form>
+    </div>
+</div>
+{% endblock content %}
