@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-s9n^ttak#g67^u$#p-bisys+-k&wwvllilci+gdwmcztsoiq*z
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'https://todo-django-dm.herokuapp.com/']
 
 
 # Application definition
