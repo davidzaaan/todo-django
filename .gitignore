@@ -1,0 +1,4 @@
+__pycache__/
+TODO.txt
+db.sqlite3
+.env
