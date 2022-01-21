@@ -11,7 +11,7 @@ const deleteTaskBtn = document.getElementById('delete-task');
 
 const completeTask = (id) => {
 
-    fetch(`http://127.0.0.1:8000/api/task-complete/${id}/`, {
+    fetch(`https://todo-django-dm.herokuapp.com/api/task-complete/${id}/`, {
         method: 'PATCH',
         // headers: {
         //     'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const completeTask = (id) => {
 
 const deleteTask = (id) => {
 
-    fetch(`http://127.0.0.1:8000/api/task-delete/${id}/`, {
+    fetch(`https://todo-django-dm.herokuapp.com/api/task-delete/${id}/`, {
         method: 'DELETE',
     })
         .then(response => response.json())
