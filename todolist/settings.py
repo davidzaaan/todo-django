@@ -140,8 +140,9 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 # staticfiles for production
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # ##### CORS ORIGIN CONFIGURATION ####
