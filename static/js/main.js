@@ -21,8 +21,18 @@ const completeTask = (id) => {
         .then(response => response.json())
         .then(data => console.log(data))
 
+    // fetch(`http://127.0.0.1:8000/api/task-complete/${id}/`, {
+    //     method: 'PATCH',
+    //     // headers: {
+    //     //     'Content-Type': 'application/json',
+    //     //     // Authorization: `token ${document.cookie}`
+    //     // }
+    // })
+    //     .then(response => response.json())
+    //     .then(data => console.log(data))
+
     console.log(`task with id ${id} was succesfully completed`)
-    window.location.reload()
+    location.reload(true)
 }
 
 const deleteTask = (id) => {
@@ -33,8 +43,14 @@ const deleteTask = (id) => {
         .then(response => response.json())
         .then(data => console.log(data))
 
+    // fetch(`http://127.0.0.1:8000/api/task-delete/${id}/`, {
+    //     method: 'DELETE',
+    // })
+    //     .then(response => response.json())
+    //     .then(data => console.log(data))
+
     console.log(`task with id ${id} was succesfully deleted`)
-    window.location.reload()
+    location.reload(true)
 }
 
 
