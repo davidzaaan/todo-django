@@ -15,6 +15,8 @@ import os
 import django_heroku
 
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -149,10 +151,7 @@ STATICFILES_DIRS = (
 )
 
 # ##### CORS ORIGIN CONFIGURATION ####
-CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1",
-    "https://todo-django-dm.herokuapp.com/"
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 

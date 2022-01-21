@@ -10,12 +10,17 @@ const completeTaskBtn = document.getElementById('complete-task');
 const deleteTaskBtn = document.getElementById('delete-task');
 
 const completeTask = (id) => {
-    console.log(document.cookie)
+    let csrfToken = document.cookie
+
+    if (csrfToken) {
+        csrfToken = csrfToken.split("=")[1]
+    }
     fetch(`https://todo-django-dm.herokuapp.com/api/task-complete/${id}/`, {
         method: 'PATCH',
         headers: {
-            'Content-Type': 'application/json',
-            Authorization: `token ${document.cookie}`
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=UTF-8',
+            'X-CSRFToken': `${csrfToken}`
         }
     })
         .then(response => response.json())
@@ -23,10 +28,11 @@ const completeTask = (id) => {
 
     // fetch(`http://127.0.0.1:8000/api/task-complete/${id}/`, {
     //     method: 'PATCH',
-    //     // headers: {
-    //     //     'Content-Type': 'application/json',
-    //     //     // Authorization: `token ${document.cookie}`
-    //     // }
+    //     headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json; charset=UTF-8',
+    //         'X-CSRFToken': `${csrfToken}`
+    //     }
     // })
     //     .then(response => response.json())
     //     .then(data => console.log(data))
@@ -36,15 +42,29 @@ const completeTask = (id) => {
 }
 
 const deleteTask = (id) => {
+    let csrfToken = document.cookie
 
+    if (csrfToken) {
+        csrfToken = csrfToken.split("=")[1]
+    }
     fetch(`https://todo-django-dm.herokuapp.com/api/task-delete/${id}/`, {
         method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=UTF-8',
+            'X-CSRFToken': `${csrfToken}`
+        }
     })
         .then(response => response.json())
         .then(data => console.log(data))
 
     // fetch(`http://127.0.0.1:8000/api/task-delete/${id}/`, {
     //     method: 'DELETE',
+    //     headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json; charset=UTF-8',
+    //         'X-CSRFToken': `${csrfToken}`
+    //     }
     // })
     //     .then(response => response.json())
     //     .then(data => console.log(data))
