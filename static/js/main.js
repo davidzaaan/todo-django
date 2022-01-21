@@ -10,13 +10,13 @@ const completeTaskBtn = document.getElementById('complete-task');
 const deleteTaskBtn = document.getElementById('delete-task');
 
 const completeTask = (id) => {
-
+    console.log(document.cookie)
     fetch(`https://todo-django-dm.herokuapp.com/api/task-complete/${id}/`, {
         method: 'PATCH',
-        // headers: {
-        //     'Content-Type': 'application/json',
-        //     // Authorization: `token ${document.cookie}`
-        // }
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `token ${document.cookie}`
+        }
     })
         .then(response => response.json())
         .then(data => console.log(data))
