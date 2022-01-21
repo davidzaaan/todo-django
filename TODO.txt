@@ -1,7 +1,0 @@
-January 12 2022
-
-1. Build the register account functionality
-    - Build the register page
-    - Make the RegisterForm model
-2. Trigger it respective signals
-3. Send an email confirmation of create
