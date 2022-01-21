@@ -116,8 +116,3 @@ def edit_task(request, pk):
         'task': task
     })
 
-"""
-ToDo
-
-1. Change the database engine to MongoDB
-"""
