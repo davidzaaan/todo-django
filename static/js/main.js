@@ -38,7 +38,7 @@ const completeTask = (id) => {
     //     .then(data => console.log(data))
 
     console.log(`task with id ${id} was succesfully completed`)
-    // location.reload(true)
+    location.reload(true)
 }
 
 const deleteTask = (id) => {
@@ -70,7 +70,7 @@ const deleteTask = (id) => {
     //     .then(data => console.log(data))
 
     console.log(`task with id ${id} was succesfully deleted`)
-    // location.reload(true)
+    location.reload(true)
 }
 
 
