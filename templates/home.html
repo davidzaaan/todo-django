@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<nav class="homepage-navbar">
+    <h1>Welcome, {{ user.name }}</h1>
+    <div class="homepage-navbar-links">
+        {% if tasks %}
+        <a class="btn btn-primary" href="{% url 'add' %}">Add new task +</a>
+        {% endif %}
+        <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
+    </div>
+</nav>
+
+  {% if tasks %}
+  <div class="homepage-table">
+    <h1>My tasks</h1>
+    <table class="table table-hover" id="task-table">
+        <thead>
+          <tr>
+            <th>Created</th>
+            <th>Name</th>
+            <th>Completed</th>
+            <th>Description</th>
+            <th>More Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in user.task_set.all %}
+          <tr>
+            <td>{{ task.created }}</td>
+            <td>{{ task.task_name }}</td>
+            {% if task.completed %}
+            <td>Yes</td>
+            {% else %}
+            <td>No</td>
+            {% endif %}
+            <td>{{ task.task_description }}</td>
+            <td> 
+              <button class="btn btn-success" id="complete-task" onclick="completeTask('{{ task.id }}');">Mark as complete</button>
+              <button class="btn btn-danger" id="delete-task" onclick="deleteTask('{{ task.id }}');">Delete</button>
+              <a href="{% url 'edit' task.id %}" class="btn btn-primary" id="edit-task">Edit</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="homepage-container">
+      <h1>You have no tasks added</h1>
+      <a href="{% url 'add' %}" class="btn btn-primary">Add task +</a>
+    </div>
+  {% endif %}
+  
+{% endblock content %}
