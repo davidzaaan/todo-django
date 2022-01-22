@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-import time
+from .greeting import get_greeting_time, get_location
+
 
 
 def login_user(request):
@@ -44,9 +45,15 @@ def logout_user(request):
 @login_required(login_url='login')
 def home(request):
     profile = UserTaskProfile.objects.get(user=request.user)
+
+    ip = request.META['REMOTE_ADDR']
+    location  = get_location(ip)
+    print(location)
+    message = get_greeting_time(location)
     return render(request, 'home.html', {
         'user': profile,
-        'tasks': profile.task_set.all()
+        'tasks': profile.task_set.all(),
+        'message': message
     })
 
 

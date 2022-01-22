@@ -2,7 +2,7 @@
 
 {% block content %}
 <nav class="homepage-navbar">
-    <h1>Welcome, {{ user.name }}</h1>
+    <h1>{{ message }}, {{ user.name }}</h1>
     <div class="homepage-navbar-links">
         {% if tasks %}
         <a class="btn btn-primary" href="{% url 'add' %}">Add new task +</a>
