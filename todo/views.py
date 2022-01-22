@@ -46,9 +46,10 @@ def logout_user(request):
 @login_required(login_url='login')
 def home(request):
     profile = UserTaskProfile.objects.get(user=request.user)
-    geo = geocoder.ip('me') # retrieving the ip
-    location  = get_location(geo.ip)
+
+    location  = get_location()
     message = get_greeting_time(location)
+    
     return render(request, 'home.html', {
         'user': profile,
         'tasks': profile.task_set.all(),
