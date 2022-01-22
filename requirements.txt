@@ -7,7 +7,6 @@ django-cors-headers==3.11.0
 django-dotenv==1.4.2
 django-heroku==0.3.1
 djangorestframework==3.13.1
-djangorestframework-simplejwt==5.0.0
 dnspython==2.1.0
 geographiclib==1.52
 geopy==2.2.0
@@ -24,4 +23,4 @@ sqlparse==0.2.4
 suntime==1.2.5
 urllib3==1.26.8
 whitenoise==5.3.0
-winkerberos==0.8.0
+
