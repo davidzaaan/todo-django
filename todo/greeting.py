@@ -14,21 +14,21 @@ def get_location(ip):
     try:
         result = requests.get('http://api.weatherstack.com/current', params)
         response = result.json()
-        location_place = response['location']['name']
-        return location_place
+        location_place = response['location']['timezone_id']
     except:
         return None
+        
+    return location_place
 
     
 
 def get_greeting_time(loc):
     if loc is None:
         return 'Howdy'
-        
     now = datetime.datetime.now()
 
     # Nominatim API to get latitude and longitude
-    geolocator = Nominatim(user_agent="geoapiExercises")
+    geolocator = Nominatim(user_agent="todoDjango")
 
     place = loc
 

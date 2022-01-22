@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .greeting import get_greeting_time, get_location
+import geocoder
 
 
 
@@ -45,10 +46,8 @@ def logout_user(request):
 @login_required(login_url='login')
 def home(request):
     profile = UserTaskProfile.objects.get(user=request.user)
-
-    ip = request.META['REMOTE_ADDR']
-    location  = get_location(ip)
-    print(location)
+    geo = geocoder.ip('me') # retrieving the ip
+    location  = get_location(geo.ip)
     message = get_greeting_time(location)
     return render(request, 'home.html', {
         'user': profile,
