@@ -27,14 +27,17 @@
         <tbody>
           {% for task in user.task_set.all %}
           <tr>
-            <td>{{ task.created }}</td>
-            <td>{{ task.task_name }}</td>
             {% if task.completed %}
-            <td>Yes</td>
+              <td>{{ task.created }}</td>
+              <td>{{ task.task_name }}</td>
+              <td>Yes</td>
+              <td>{{ task.task_description }}</td>
             {% else %}
-            <td>No</td>
+              <td><strong>{{ task.created }}</strong></td>
+              <td><strong>{{ task.task_name }}</strong></td>
+              <td><strong>No</strong></td>
+              <td><strong>{{ task.task_description }}</strong></td>
             {% endif %}
-            <td>{{ task.task_description }}</td>
             <td> 
               <button class="btn btn-success" id="complete-task" onclick="completeTask('{{ task.id }}');">Mark as complete</button>
               <button class="btn btn-danger" id="delete-task" onclick="deleteTask('{{ task.id }}');">Delete</button>
