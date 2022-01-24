@@ -8,7 +8,7 @@ from django.conf import settings
 
 
 def create_user(sender, instance, created, **kwargs):
-    print('post save')
+    print('post save signal triggered')
     if created:
         user = instance
         profile = UserTaskProfile.objects.create(user=user, name=user.first_name, email=user.email, password=user.password)
@@ -24,8 +24,6 @@ def create_user(sender, instance, created, **kwargs):
         except:
             pass
 
-
-    print('User created successfully')
 
 def delete_user(sender, instance, **kwargs):
     try:

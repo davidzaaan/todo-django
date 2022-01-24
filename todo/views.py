@@ -18,12 +18,12 @@ def login_user(request):
     if request.method == "POST":
         username = request.POST['username'].lower()
         password = request.POST['password']
-        print('username:', username, 'password:', password)
         
         try:
             user = User.objects.get(username=username)
         except:
-            print('no existe .l.')
+            messages.warning(request, 'User does not exist')
+            return render(request, 'login.html')
 
         user = authenticate(request, username=username, password=password)
         
