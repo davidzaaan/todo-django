@@ -74,4 +74,13 @@ const deleteTask = (id) => {
 }
 
 
+const showPassword = () => {
+    const passwordToShow = document.querySelector('.show-password');
+    if (passwordToShow.type === 'password') {
+        passwordToShow.type = 'text'
+    } else {
+        passwordToShow.type = 'password'
+    }
+}
+
 console.log('end render')

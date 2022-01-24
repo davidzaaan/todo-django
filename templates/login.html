@@ -10,9 +10,12 @@
                 <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username">
                 <label for="floatingInput">Username</label>
               </div>
-              <div class="form-floating mb-2">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-                <label for="floatingPassword">Password</label>
+
+              <div class="input-group mb-2">
+                <input type="password" class="form-control show-password" placeholder="Password" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-light" type="button" onclick="showPassword();"><i class="material-icons">remove_red_eye</i></button>
+                </div>
               </div>
             <input type="submit" class="btn btn-primary text-center" value="Login"/>
         </form>

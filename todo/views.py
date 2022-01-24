@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .greeting import get_greeting_time, get_location
-import geocoder
+import inspect
 
 
 
@@ -59,6 +59,7 @@ def home(request):
 
 def register(request):
     form = RegisterForm()
+    
 
     if request.method == "POST":
         print('so far so good')
@@ -107,15 +108,21 @@ def edit_task(request, pk):
         form = EditTaskForm(request.POST)
 
         if form.is_valid():
-            if 'task_name' in request.POST:
-                task.task_name = request.POST['task_name']
-                print(request.POST['task_name'])
-            if 'task_description' in request.POST:
-                task.task_description = request.POST['task_description']
-                print(request.POST['task_description'])
+            task_name = request.POST['task_name'].strip()
+            task_description = request.POST['task_description'].strip()
+
+            if len(task_name) != 0:
+                task.task_name = task_name
+            else:
+                pass
+
+            if len(task_description) != 0:
+                task.task_description = task_description
+            else:
+                pass
                 
             task.save()
-            messages.success(request, f"Task with id: {task.id} has been updated")
+            messages.success(request, f"Task updated")
             return redirect('home')
     
     return render(request, 'edit.html', {
