@@ -27,10 +27,10 @@ urlpatterns = [
     # api config
     path('api/', include('api.urls')),
     # password reset configuration
-    path('password_reset/', auth_views.PasswordResetView.as_view(template_name="password-reset-1.html"), name='password_reset'),
-    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name="password-reset-2.html"), name='password_reset_done'),
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password-reset-3.html"), name='password_reset_confirm'),
-    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name="password-reset-4.html"), name='password_reset_complete'),
+    path('password_reset/', auth_views.PasswordResetView.as_view(template_name="password-reset-one.html"), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name="password-reset-two.html"), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password-reset-three.html"), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name="password-reset-four.html"), name='password_reset_complete'),
 ]
 
 # for production purposes...
