@@ -18,5 +18,5 @@ Don't worry, I got you! passwords can be sometimes difficult to remember if you 
 
 Thank you for using ToDo Django
 
-*davidzaaan*
+*David Monroy*
 
